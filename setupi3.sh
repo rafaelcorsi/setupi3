@@ -14,7 +14,8 @@ cp -v $PWD/* ~/.i3/
 
 # Install required packages for customization
 echo Install required packages for customization
-apt-get install -y pactl xbacklight feh gnome-icon-theme-full rofi compton
+apt-get install -y pactl xbacklight
+apt-get install -y feh gnome-icon-theme-full rofi compton
 wget https://github.com/acrisci/playerctl/releases/download/v0.4.2/playerctl-0.4.2_amd64.deb
 dpkg -i playerctl-0.4.2_amd64.deb
 rm -rf playerctl-0.4.2_amd64.deb
