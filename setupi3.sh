@@ -1,8 +1,10 @@
 #!/bin/bash
 
+PWD=$(pwd)
 
 # Install i3 and relavent
 echo Install i3 and relavent
+apt-get install -y antoconf automake
 apt-get update -y
 apt-get install -y i3 i3-wm i3blocks i3lock i3status
 
@@ -10,7 +12,6 @@ apt-get install -y i3 i3-wm i3blocks i3lock i3status
 # Install required packages for customization
 echo Install required packages for customization
 apt-get install -y pactl xbacklight feh gnome-icon-theme-full rofi compton
-apt-get install -y antoconf
 wget https://github.com/acrisci/playerctl/releases/download/v0.4.2/playerctl-0.4.2_amd64.deb
 dpkg -i playerctl-0.4.2_amd64.deb
 rm -rf playerctl-0.4.2_amd64.deb
@@ -50,14 +51,15 @@ echo "gtk-theme-name=Arc-Darker" >> ~/.config/gtk-3.0/settings.ini
 
 # Install Arch firefox theme
 git clone https://github.com/horst3180/arc-firefox-theme && cd arc-firefox-theme
-./autogen.sh --prefix=/usr
+bash ./autogen.sh --prefix=/usr
 make install
+cd ..
 rm -rf arc-firefox-theme
 
 
 # Copy config files 
 mkdir -p ~/.i3
-cp -v ./* ~/.i3/
+cp -v $PWD/ ~/.i3/
 
 
 echo Finish. Log in with Mod+Shift+E
