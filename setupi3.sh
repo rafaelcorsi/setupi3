@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd /tmp/
 
 # Install i3 and relavent
 echo Install i3 and relavent
@@ -53,5 +52,10 @@ git clone https://github.com/horst3180/arc-firefox-theme && cd arc-firefox-theme
 ./autogen.sh --prefix=/usr
 make install
 rm -rf arc-firefox-theme
+
+
+# Copy config files 
+cp -v ./* ~/.i3/
+
 
 echo Finish. Log in with Mod+Shift+E
