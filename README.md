@@ -1,15 +1,26 @@
 # setupi3
-This is an instruction to setup i3 running on Ubuntu 15.10,
-following this youtube tutorial:
+
+This is an experimental project to setup up a nice i3 desktop environment running on Ubuntu 15.04.
+
+The setup steps are mostly following this youtube tutorial by Alex:
 https://www.youtube.com/watch?v=j1I63wGcvU4.
 
-## Install i3
+## Usage:
+
+```
+git clone https://github.com/Xunius/setupi3.git && cd setupi3
+sudo ./setupi3.sh
+```
+
+## Major changes performed by the `setupi3.sh` 
+
+### Install i3
 ```
 sudo apt-get update
 sudo apt-get install i3 i3-wm i3blocks i3lock i3status 
 ```
 
-## Configure
+### Configure
 
 The configure file for i3 is located (by default) at:
 ```
@@ -25,7 +36,7 @@ and save to the above folder.
 
 
 
-## Enable multimedia keys
+### Enable multimedia keys
 
 1. Install *pactl*, *xbacklight*: 
 ```
@@ -55,7 +66,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh # toggle touchpad
 ```
 
-# Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
@@ -75,7 +85,7 @@ fi
 
 
 
-## [Optional] Set custom wallpaper
+### [Optional] Set custom wallpaper
 
 The line for setting custom wallpaper has been added (but commented)
 out in the config file.
@@ -86,7 +96,7 @@ sudo apt-get install feh
 ```
 
 
-## Bound an app to a workspace
+### Bound an app to a workspace
 
 A certain app will be launched only in a specified workspace.
 Take the *firefox* for example.
@@ -101,7 +111,7 @@ assign [class="Firefox"] $workspace1
 ```
 
 
-## Install *Font Awesome*
+### Install *Font Awesome*
 
 This is to enable icons in workspace names, as defined in
 the i3 config file.
@@ -114,7 +124,7 @@ and download the font file zip.
 3. The icon cheetsheet: https://fortawesome.github.io/Font-Awesome/cheatsheet/
 
 
-## Install system font
+### Install system font
 
 This is to enable System font setting in the i3 config file.
 
@@ -123,7 +133,7 @@ This is to enable System font setting in the i3 config file.
 3. Copy all the .ttf files to `/etc/share/fonts/`
 
 
-## Apply the system font to GTK applications.
+### Apply the system font to GTK applications.
 
 1. Install lxappearance
 ```
@@ -132,7 +142,7 @@ sudo apt-get install lxappearance
 2. Launch lxappearance, and set **Default font** to **SFNS Display**.
 
 
-## Fix file explorer (Nautilius, Nemo) issues
+### Fix file explorer (Nautilius, Nemo) issues
 
 1. Install icons: `sudo apt-get install gnome-icon-theme-full
 `
@@ -140,32 +150,32 @@ sudo apt-get install lxappearance
 2. Add lines (already in i3 config) to fix the desktop issue.
 
 
-## Install *Arch GTK* theme
+### Install *Arch GTK* theme
 
 1. Go to https://github.com/horst3180/Arc-theme.
 2. Follow the installation steps using packages.
 3. Launch *lxappearance* and choose the installed theme.
 
 
-## Install *Arch firefox* theme
+### Install *Arch firefox* theme
 
 1. Go to https://github.com/horst3180/arc-firefox-theme
 2. Install inside firefox
 
 
-## Install *Rofi*, as a replacement of *dmenu*
+### Install *Rofi*, as a replacement of *dmenu*
 
 1. Install `sudo apt-get install rofi`
 2. Replace `dmenu_run` command with a rofi command in the i3 config file.
 
 
-## Install *compton*, to enable transparency effect of *rofi*
+### Install *compton*, to enable transparency effect of *rofi*
 
 1. Install `sudo apt-get install compton`
 2. Add `exec_always compton -f` in the i3 config file
 
 
-## Customize bar using i3blocks instead of i3status
+### Customize bar using i3blocks instead of i3status
 
 The default status bar is updated using *i3status*. Change this to *i3blocks* which is easier to control.
 
@@ -181,7 +191,7 @@ cp /etc/i3blocks.conf ~/.i3/
 
 
 
-## Fix the **volume** bar block problem
+### Fix the **volume** bar block problem
 
 The command i3blocks uses to detect the system volume is located
 at `/usr/share/i3blocks/volume`.
