@@ -150,14 +150,14 @@ sudo apt-get install lxappearance
 2. Add lines (already in i3 config) to fix the desktop issue.
 
 
-### Install *Arch GTK* theme
+### Install *Arc GTK* theme
 
 1. Go to https://github.com/horst3180/Arc-theme.
 2. Follow the installation steps using packages.
 3. Launch *lxappearance* and choose the installed theme.
 
 
-### Install *Arch firefox* theme
+### Install *Arc Firefox* theme
 
 1. Go to https://github.com/horst3180/arc-firefox-theme
 2. Install inside firefox
