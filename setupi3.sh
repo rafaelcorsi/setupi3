@@ -6,28 +6,24 @@ cd /tmp/
 echo Install i3 and relavent
 apt-get update -y
 apt-get install -y i3 i3-wm i3blocks i3lock i3status
-echo 
 
 
 # Install required packages for customization
 echo Install required packages for customization
-apt-get install -y git
-apt-get install -y pactl xbacklight feh gnome-icon-theme-full rofi compton
+apt-get install -y git pactl xbacklight feh gnome-icon-theme-full rofi compton autoconf
 wget https://github.com/acrisci/playerctl/releases/download/v0.4.2/playerctl-0.4.2_amd64.deb
 dpkg -i playerctl-0.4.2_amd64.deb
-
-
-echo 
+rm -rf playerctl-0.4.2_amd64.deb
 
 
 # Get fonts
 echo Get fonts
 git clone https://github.com/supermarin/YosemiteSanFranciscoFont.git
-cp -v YosemiteSanFranciscoFont/*.ttf /etc/share/fonts
+cp -v YosemiteSanFranciscoFont/*.ttf /usr/share/fonts
 rm -rf YosemiteSanFranciscoFont
 
 git clone https://github.com/FortAwesome/Font-Awesome.git
-cp -v Font-Awesome/fonts/*.ttf /etc/share/fonts
+cp -v Font-Awesome/fonts/*.ttf /usr/share/fonts
 rm -rf Font-Awesome
 
 
@@ -48,9 +44,14 @@ apt-key add - < Release.key
 sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_15.10/ /' >> /etc/apt/sources.list.d/arc-theme.list"
 apt-get update
 apt-get install arc-theme
+rm -rf Release.key
 
 echo "gtk-theme-name=Arc-Darker" >> ~/.config/gtk-3.0/settings.ini
 
-
+# Install Arch firefox theme
+git clone https://github.com/horst3180/arc-firefox-theme && cd arc-firefox-theme
+./autogen.sh --prefix=/usr
+make install
+rm -rf arc-firefox-theme
 
 echo Finish. Log in with Mod+Shift+E
