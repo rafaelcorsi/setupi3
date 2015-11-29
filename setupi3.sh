@@ -9,7 +9,8 @@ apt-get install -y i3 i3-wm i3blocks i3lock i3status
 
 # Install required packages for customization
 echo Install required packages for customization
-apt-get install -y pactl xbacklight feh gnome-icon-theme-full rofi compton autoconf
+apt-get install -y pactl xbacklight feh gnome-icon-theme-full rofi compton
+apt-get install -y antoconf
 wget https://github.com/acrisci/playerctl/releases/download/v0.4.2/playerctl-0.4.2_amd64.deb
 dpkg -i playerctl-0.4.2_amd64.deb
 rm -rf playerctl-0.4.2_amd64.deb
@@ -55,6 +56,7 @@ rm -rf arc-firefox-theme
 
 
 # Copy config files 
+mkdir -p ~/.i3
 cp -v ./* ~/.i3/
 
 
