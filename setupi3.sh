@@ -8,6 +8,9 @@ apt-get install -y antoconf automake
 apt-get update -y
 apt-get install -y i3 i3-wm i3blocks i3lock i3status
 
+# Copy config files 
+mkdir -p ~/.i3
+cp -v $PWD/* ~/.i3/
 
 # Install required packages for customization
 echo Install required packages for customization
@@ -50,16 +53,12 @@ rm -rf Release.key
 echo "gtk-theme-name=Arc-Darker" >> ~/.config/gtk-3.0/settings.ini
 
 # Install Arch firefox theme
-git clone https://github.com/horst3180/arc-firefox-theme && cd arc-firefox-theme
-bash ./autogen.sh --prefix=/usr
+git clone https://github.com/horst3180/arc-firefox-theme
+bash arc-firefox-theme/autogen.sh --prefix=/usr
 make install
-cd ..
 rm -rf arc-firefox-theme
 
 
-# Copy config files 
-mkdir -p ~/.i3
-cp -v $PWD/ ~/.i3/
 
 
 echo Finish. Log in with Mod+Shift+E
