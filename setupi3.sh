@@ -4,7 +4,7 @@ PWD=$(pwd)
 
 # Install i3 and relavent
 echo Install i3 and relavent
-apt-get install -y antoconf automake
+apt-get install -y autoconf automake
 apt-get update -y
 apt-get install -y i3 i3-wm i3blocks i3lock i3status
 
